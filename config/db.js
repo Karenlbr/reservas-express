@@ -9,6 +9,8 @@ export const dbConnection = new Sequelize(
     port: process.env.DB_PORT,
     dialect: "mariadb",
     dialectOptions: {
+      max: 10,
+      min: 0,
       connectTimeout: 30000,
     },
   }

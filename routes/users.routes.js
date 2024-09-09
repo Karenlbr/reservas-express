@@ -15,7 +15,8 @@ import userExists from "../middlewares/users/userExists.middleware.js";
 
 export const userRouter = Router();
 
-userRouter.get("/obtener-usuarios", GetAllUsers);
+userRouter.get("/", GetAllUsers);
+
 userRouter.get("/:id", [checkIdNumber, userExists], GetOneUserById);
 
 userRouter.post("/login", Login);
@@ -35,10 +36,6 @@ userRouter.post(
 
 userRouter.patch("/:id", [checkIdNumber, userExists], UpdateUserById);
 
-userRouter.delete(
-  "/:id",
-  [checkIdNumber, userExists, authorizateUser],
-  DeleteUserById
-);
+userRouter.delete("/:id", [checkIdNumber, userExists], DeleteUserById);
 
 export default userRouter;

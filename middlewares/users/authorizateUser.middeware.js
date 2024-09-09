@@ -2,10 +2,10 @@ import jwt from "jsonwebtoken";
 import User from "../../models/user.js";
 
 const authorizateUser = async (req, res, next) => {
-  const token = req.headers.authorization.split("Bearer")[1];
-  console.log(token);
-
   try {
+    const token = req.headers.authorization.split("Bearer")[1];
+    console.log(token);
+
     const { userId } = jwt.verify(token, "bolivar-2024");
     console.log(userId);
 

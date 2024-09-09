@@ -1,21 +1,10 @@
-import redis from "../config/redis.js";
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import { CONFIG } from "../config/config.js";
 
 export const GetAllUsers = async (req, res) => {
-  const usersKey = "users";
-
-  let cachedResponse = await redis.get(usersKey);
-  if (cachedResponse) {
-    cachedResponse = JSON.parse(cachedResponse);
-
-    return res.status(200).json(cachedResponse);
-  }
-
   const users = await User.findAll();
-
-  await redis.set(usersKey, JSON.stringify(users));
-
   res.json(users);
 };
 
@@ -28,7 +17,9 @@ export const GetOneUserById = async (req, res) => {
 };
 
 export const CreateUser = async (req, res) => {
-  const userToCreate = req.body;
+  const { username, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, CONFIG.SALT_ROUNDS);
+  const userToCreate = { username, password: hashedPassword };
 
   await User.create(userToCreate);
 
@@ -73,12 +64,21 @@ export const Login = async (req, res) => {
   const user = await User.findOne({
     where: {
       username: username,
-      password: password,
     },
   });
 
   if (!user) {
-    return res.status(401).json({ message: "Invalid credentials" });
+    return res
+      .status(401)
+      .json({ message: "Usuario y/o contraseña incorrecto" });
+  }
+
+  const matchPassword = await bcrypt.compareSync(password, user.password);
+
+  if (!matchPassword) {
+    return res
+      .status(401)
+      .json({ message: "Usuario y/o contraseña incorrecto" });
   }
 
   const token = jwt.sign({ userId: user.id }, "bolivar-2024", {

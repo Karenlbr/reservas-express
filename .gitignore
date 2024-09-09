@@ -1,0 +1,55 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Docker
+Dockerfile
+docker-compose.yml
+*.env
+.dockerignore
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# dotenv environment variables file
+.env
+.env.*
+
+# Optional npm cache
+.npm
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# build directories
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
+*.swp
+
+# Optional IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Optional testing frameworks
+jest.config.js
+coverage/

@@ -1,16 +1,16 @@
 import { DataTypes } from "sequelize";
 import { dbConnection } from "../config/db.js";
 
-const User = dbConnection.define("Users", {
-  username: {
+const Department = dbConnection.define("departments", {
+  department: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  password: {
+  responsible: {
     type: DataTypes.STRING,
     allowNull: true,
   },
 });
 
-User.sync();
-export default User;
+Department.sync();
+export default Department;
