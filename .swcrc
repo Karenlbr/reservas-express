@@ -2,8 +2,7 @@
     "jsc": {
       "parser": {
         "syntax": "ecmascript",
-        "jsx": false,
-        "dynamicImport": true
+        "jsx": false
       },
       "target": "es2021",
       "loose": false,
@@ -11,6 +10,7 @@
     },
     "module": {
       "type": "es6"
-    }
+    },
+    "exclude": ["node_modules"]
   }
   
