@@ -1,0 +1,16 @@
+{
+    "jsc": {
+      "parser": {
+        "syntax": "ecmascript",
+        "jsx": false,
+        "dynamicImport": true
+      },
+      "target": "es2021",
+      "loose": false,
+      "externalHelpers": true
+    },
+    "module": {
+      "type": "es6"
+    }
+  }
+  

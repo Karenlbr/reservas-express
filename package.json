@@ -1,0 +1,40 @@
+{
+  "name": "reservas-activos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npx babel-node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  " author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "db-local": "^3.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-validator": "^7.2.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mariadb": "^3.3.1",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/node": "^7.25.0",
+    "@babel/preset-env": "^7.25.4",
+    "@swc/cli": "^0.4.1-nightly.20240914",
+    "@swc/core": "^1.7.26",
+    "esbuild": "^0.24.0",
+    "node-dev": "^8.0.0",
+    "nodemon": "^3.1.4",
+    "standard": "^17.1.0"
+  }
+}
