@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npx swc src -d dist",
+    "build": "npx swc . -d dist --ignore node_modules",
     "start": "npx babel-node index.js",
     "dev": "nodemon index.js"
   },

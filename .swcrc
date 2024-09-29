@@ -1,16 +1,14 @@
 {
-    "jsc": {
-      "parser": {
-        "syntax": "ecmascript",
-        "jsx": false
-      },
-      "target": "es2021",
-      "loose": false,
-      "externalHelpers": true
+  "jsc": {
+    "parser": {
+      "syntax": "ecmascript",
+      "jsx": false
     },
-    "module": {
-      "type": "es6"
-    },
-    "exclude": ["node_modules"]
+    "target": "es2021",
+    "loose": false,
+    "externalHelpers": true
+  },
+  "module": {
+    "type": "es6"
   }
-  
+}
